@@ -15,7 +15,10 @@ skablam/flask. The line in the Vagrantfile is
 
 3) Run the a container using image skablam/flask, forwarding port 5000 in the
 container to port 5000 in the vm, and sharing the folder /vagrant in the vm with
-/code in the container.
+/code in the container. The line in the Vagrantfile is:
+
+    d.run "flaskapp", image: "skablam/flask", args: "-p 5000:5000 -v
+    /vagrant:/code"
 
 The hello world Flask app can be amended on the host and it the changes
 will automatically get picked up within the container because the code is in the
